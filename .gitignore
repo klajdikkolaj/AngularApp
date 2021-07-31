@@ -450,3 +450,4 @@ $RECYCLE.BIN/
 
 # personalized
 appsettings.json
+/client/ssl
