@@ -3,14 +3,11 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor,
-  HTTP_INTERCEPTORS
-} from '@angular/common/http';
+  HttpInterceptor} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {NavigationExtras, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {catchError} from 'rxjs/operators';
-import {error} from 'protractor';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -47,11 +44,11 @@ export class ErrorInterceptor implements HttpInterceptor {
               break;
             default:
               this.toast.error('Something went wrong');
-              console.log(error);
+              console.log(err);
               break;
           }
         }
-        return throwError(error);
+        return throwError(err);
       })
     );
   }
